@@ -23,19 +23,18 @@
     ?>
         </div>
         <div class="col-md-8">
-        <button name="create" value="Tao moi"></button>
+        
         <h1>Bang hinh thuc thanh toan</h1>
         <?php
         include_once(__DIR__ . '/../../example/bang_xoa.php');
         ?>
+        <a class="btn btn-primary" href="create.php" role="button">tao moi hinh thuc thanh toan</a>
         </div>
     </div>
     
     </div>
     
-    <?php
-    include_once(__DIR__ .'/../layouts/partials/sidebar.php');
-    ?>
+   
     <?php
     include_once(__DIR__ .'/../layouts/partials/footer.php');
     ?>
