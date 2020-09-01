@@ -45,6 +45,45 @@
             </tr>
         </table>
     </form>
+
+    <?php
+    include_once(__DIR__. '/../../dbconnect.php');
+    if(isset($_POST['httt_ten'])){
+        $httt_ten= $_POST['httt_ten'];
+        $errors=[];
+
+        if(empty($httt_ten)){
+            $errors['httt_ten'][] =[
+                'rule' => 'required',
+                'rule_value' => true,
+                'value' => $httt_ten,
+                'msg' => 'Vui long nhap ten hinh thuc thanh toan'
+
+            ];
+        }
+        //minlength 3
+        if(!empty($httt_ten) && strlen($httt_ten) < 3) {
+            $errors['httt_ten'][] =[
+            'rule' => 'minlength',
+                'rule_value' => 3,
+                'value' => $httt_ten,
+                'msg' => 'Ten hinh thuc thanh toan phải có ít nhất 3 ký tự'
+            ];
+        }
+        //maxlength
+        if(!empty($httt_ten) && strlen($httt_ten) > 50) {
+            $errors['httt_ten'][] =[
+            'rule' => 'maxlength',
+                'rule_value' => 50,
+                'value' => $httt_ten,
+                'msg' => 'Ten hinh thuc thanh toan không được vượt quá 50 ký tự'
+            ];
+        }
+        print_r($errors);die;
+    }?>
+   
+
+
     <?php
         if(isset($_POST['btnluu'])){
             include_once(__DIR__ . '/../dbconnect.php');
